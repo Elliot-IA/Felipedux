@@ -82,9 +82,13 @@ function regenerateLocImgs(){
     astrasystem.collection("LOCATION_Images").find().toArray((error, imagesArray)=>{
         numImgs = imagesArray.length;
         console.log("Regenerating Location Images...\t("+numImgs+")");
-        imagesArray.forEach((img)=>{
-            generateImg(img.name, img.uri, "./LocationMap_Images/"+img.name);
-        });
+        if(numImgs != 0){
+            imagesArray.forEach((img)=>{
+                generateImg(img.name, img.uri, "./LocationMap_Images/"+img.name);
+            });
+        }else{
+            regenerateInvFiles();
+        }
     });
 }
 async function generateImg(imgName, imgURI, imgPath){
@@ -94,7 +98,7 @@ async function generateImg(imgName, imgURI, imgPath){
         if(numImgs ==  processedImgs){
             console.log("v/ Location Image Regeneration Complete!\n");
             regenerateInvFiles();
-        }
+        }//change
     });
 }
 function regenerateInvFiles(){
