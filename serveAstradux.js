@@ -98,7 +98,7 @@ async function generateImg(imgName, imgURI, imgPath){
         if(numImgs ==  processedImgs){
             console.log("v/ Location Image Regeneration Complete!\n");
             regenerateInvFiles();
-        }//change
+        }
     });
 }
 function regenerateInvFiles(){
