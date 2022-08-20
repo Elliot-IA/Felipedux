@@ -1131,5 +1131,9 @@ function ResizeImage(uri) {
 }
 function resizeImgWrapper(uri){
     console.log("Determining if image is too large to be POST-ed...");
-    ResizeImage(uri);
+    if(uri.substring(0,50).indexOf("data:image") != -1){
+        ResizeImage(uri);
+    }else{
+        alert("That upload was not an image!");
+    }
 }
